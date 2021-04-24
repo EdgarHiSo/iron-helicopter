@@ -18,7 +18,8 @@ class Game {
       this.clear()
       this.move()
       this.draw()
-      
+      this.checkCollisions()
+      this.clearObstacles()
       if(this.tick > 100){
         this.tick = 0;
         this.addObstacle()
@@ -58,6 +59,28 @@ class Game {
   checkCollisions() {
     // TODO: check helicopter on floor?
     // TODO: iterate obstacles. check colX and colY
+
+
+    const collision = this.obstacles.some(obstacle => {
+      const colX = (
+        this.helicopter.x + this.helicopter.w >= obstacle.x &&
+        this.helicopter.x <= obstacle.x + obstacle.w
+      )
+
+      const colY = (
+        this.helicopter.y + this.helicopter.h >= obstacle.y &&
+        this.helicopter.y <= obstacle.y + obstacle.h
+      )
+
+      return colX && colY
+    })
+
+    const crash = this.helicopter.isFloor()
+
+    if (collision || crash) {
+      this.gameOver()
+    
+    }
   }
 
   onKeyEvent(event) {
