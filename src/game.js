@@ -33,11 +33,11 @@ class Game {
   }
 
   draw() {
-    // TODO: draw everything
+    this.bg.draw()
   }
 
   move() {
-    // TODO: move everything
+    
   }
 
   checkCollisions() {
