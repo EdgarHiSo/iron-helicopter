@@ -21,3 +21,4 @@ class Bullet {
     // TODO: is inside canvas?
   }
 }
+// holis
