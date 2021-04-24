@@ -65,22 +65,35 @@ class Helicopter {
         case UP:
           this.ay = -0.2;
           break;
+        case RIGHT:
+          this.ax = 0.2;
+          break;
+        case LEFT:
+          this.ax = -0.2;
+          break;
       }
     } else {
       switch (event.keyCode) {
         case UP:
           this.ay = 0;
           break;
+        case RIGHT:
+          this.ax = 0;
+          break;
+        case LEFT:
+          this.ax = 0;
+          break;
+      }
+    }
+  }
+
+  animate() {
+    if (this.ay !== 0) {
+      this.img.frameIndex++
+      if (this.img.frameIndex >= this.img.frames) {
+        this.img.frameIndex = 0
+      }
     }
 
-
   }
-}
-
-animate() {
-  this.img.frameIndex++
-  if (this.img.frameIndex >= this.img.frames) {
-    this.img.frameIndex = 0
-  }
-}
 }
