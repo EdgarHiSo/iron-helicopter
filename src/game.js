@@ -34,10 +34,11 @@ class Game {
 
   draw() {
     this.bg.draw()
+    this.helicopter.draw()
   }
 
   move() {
-    
+    this.bg.move()
   }
 
   checkCollisions() {

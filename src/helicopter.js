@@ -24,11 +24,24 @@ class Helicopter {
 
     this.weapon = new Weapon(this)
 
-    this._setListeners()
+    //this._setListeners()
   }
 
   draw() {
     // TODO: draw helicopter image
+  this.ctx.drawImage(
+        this.img,
+
+        this.img.frameIndex * this.img.width / this.img.frames,
+        0,
+        this.img.width,
+        this.img.height / 4,
+
+        this.x,
+        this.y,
+        this.w,
+        this.h
+      )
 
     this.weapon.draw()
   }
