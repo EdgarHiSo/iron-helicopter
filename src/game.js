@@ -14,7 +14,7 @@ class Game {
   }
 
   start() {
-    // TODO: loop. clear, draw, move, addObstacle, checkCollisions, clearObstacles
+    // muchos TODOs: loop. clear, draw, move, addObstacle, checkCollisions, clearObstacles
     this.intervalId = setInterval(()=>{
       this.clear()
       this.move()
