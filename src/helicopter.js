@@ -52,7 +52,7 @@ class Helicopter {
   }
 
   isTop() {
-    return this.y < this.ctx.canvas.y
+    return this.y < 0
   }
 
   move() {
