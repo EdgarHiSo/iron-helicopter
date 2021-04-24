@@ -39,6 +39,7 @@ class Game {
 
   move() {
     this.bg.move()
+    this.helicopter.move()
   }
 
   checkCollisions() {
@@ -47,7 +48,7 @@ class Game {
   }
 
   onKeyEvent(event) {
-    // TODO
+    this.helicopter.onKeyEvent(event)
   }
 
   gameOver() {

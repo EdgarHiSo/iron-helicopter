@@ -31,18 +31,17 @@ class Helicopter {
     // TODO: draw helicopter image
     this.animate()
     this.ctx.drawImage(
-        this.img,
+      this.img,
+      0,
+      this.img.frameIndex * this.img.height / this.img.frames,
+      this.img.width,
+      this.img.height / 4,
 
-        this.img.frameIndex * this.img.width / this.img.frames,
-        0,
-        this.img.width,
-        this.img.height / 4,
-
-        this.x,
-        this.y,
-        this.w,
-        this.h
-      )
+      this.x,
+      this.y,
+      this.w,
+      this.h
+    )
 
     this.weapon.draw()
   }
@@ -52,17 +51,36 @@ class Helicopter {
   }
 
   move() {
-    // TODO: move
+    this.vy += this.ay
+    this.vy += this.g
+    this.vx += this.ax
+
+    this.y += this.vy
+    this.x += this.vx
   }
 
   onKeyEvent(event) {
-    // TODO
-  }
-
-  animate() {
-    this.img.frameIndex++
-    if (this.img.frameIndex >= this.img.frames) {
-      this.img.frameIndex = 0
+    if (event.type === "keydown") {
+      switch (event.keyCode) {
+        case UP:
+          this.ay = -0.2;
+          break;
+      }
+    } else {
+      switch (event.keyCode) {
+        case UP:
+          this.ay = 0;
+          break;
     }
+
+
   }
+}
+
+animate() {
+  this.img.frameIndex++
+  if (this.img.frameIndex >= this.img.frames) {
+    this.img.frameIndex = 0
+  }
+}
 }
