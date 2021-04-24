@@ -10,15 +10,19 @@ class Bullet {
   draw() {
     this.ctx.beginPath();
     // TODO: draw circle
+    this.ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI)
+    this.ctx.fillStyle = "red"
+    this.ctx.fill()
     this.ctx.closePath()
   }
 
   move() {
     // TODO: move circle
+    this.x += this.vx
+    
   }
 
   isVisible() {
     // TODO: is inside canvas?
   }
 }
-// holis

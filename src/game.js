@@ -7,6 +7,7 @@ class Game {
     this.bg = new Background(ctx)
     this.helicopter = new Helicopter(ctx)
     this.obstacles = []
+    
   }
 
   start() {

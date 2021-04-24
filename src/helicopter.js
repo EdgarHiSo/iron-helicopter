@@ -57,6 +57,8 @@ class Helicopter {
 
     this.y += this.vy
     this.x += this.vx
+
+    this.weapon.move()
   }
 
   onKeyEvent(event) {
@@ -71,6 +73,9 @@ class Helicopter {
         case LEFT:
           this.ax = -0.2;
           break;
+        case SPACE:
+          this.weapon.shoot();
+          break;  
       }
     } else {
       switch (event.keyCode) {
