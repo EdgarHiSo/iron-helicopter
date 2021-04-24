@@ -11,6 +11,13 @@ class Game {
 
   start() {
     // TODO: loop. clear, draw, move, addObstacle, checkCollisions, clearObstacles
+    this.intervalId = setInterval(()=>{
+      this.clear()
+      this.move()
+      this.draw()
+  
+
+    }, 1000 / 60)
   }
 
   clearObstacles() {
