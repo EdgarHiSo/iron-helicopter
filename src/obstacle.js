@@ -24,8 +24,8 @@ class Obstacle {
 
   isVisible() {
     return (
-      this.x < this.ctx.canvas.width * 2 &&
-      this.x > 0 - this.ctx.canvas.width
+      this.x < this.ctx.canvas.width &&
+      this.x > 0 - this.w
     )
   }
 }

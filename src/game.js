@@ -9,6 +9,7 @@ class Game {
     this.obstacles = [
       new Obstacle(ctx)
     ]
+    this.score = new Score(ctx)
     
   }
 
@@ -28,9 +29,19 @@ class Game {
     }, 1000 / 60)
   }
 
+  updateScore() {
+    this.score.value += 20
+  }
+
   clearObstacles() {
     // TODO: filter only visible obstacles (call o.isVisible())
-    this.obstacles = this.obstacles.filter((o) => o.isVisible())
+    this.obstacles = this.obstacles.filter((o) => {
+      if (o.isVisible()) {
+        return true
+      } else {
+        this.updateScore()
+      }
+    })
   }
 
   addObstacle() {
@@ -48,6 +59,7 @@ class Game {
     this.bg.draw()
     this.helicopter.draw()
     this.obstacles.forEach(o => o.draw())
+    this.score.draw()
   }
 
   move() {
@@ -75,9 +87,10 @@ class Game {
       return colX && colY
     })
 
-    const crash = this.helicopter.isFloor()
+    const crashFloor = this.helicopter.isFloor()
+    const crashTop = this.helicopter.isTop()
 
-    if (collision || crash) {
+    if (collision || crashFloor || crashTop) {
       this.gameOver()
     
     }
