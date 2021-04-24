@@ -29,7 +29,8 @@ class Helicopter {
 
   draw() {
     // TODO: draw helicopter image
-  this.ctx.drawImage(
+    this.animate()
+    this.ctx.drawImage(
         this.img,
 
         this.img.frameIndex * this.img.width / this.img.frames,
@@ -56,5 +57,12 @@ class Helicopter {
 
   onKeyEvent(event) {
     // TODO
+  }
+
+  animate() {
+    this.img.frameIndex++
+    if (this.img.frameIndex >= this.img.frames) {
+      this.img.frameIndex = 0
+    }
   }
 }
